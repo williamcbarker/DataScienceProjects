@@ -1,0 +1,4 @@
+"This project uses a linear regression and random forest machine learning model to predict a persons salary based off of various variables like education, experience,
+job title, age, gender and location. I performed exploratory data analysis and built visualizations to learn more about the data. After converting non-numeric values 
+to numeric ones that we can use for building the models, I split the data into training and test sets and built the models. Then used metrics like absolute means error
+and R-squared score to evaluate the models accuracy."
