@@ -1,0 +1,23 @@
+services:
+  airflow:
+    image: apache/airflow:latest
+    container_name: capstone_airflow
+    hostname: airflow
+    command: standalone
+    ports:
+      - "8080:8080"
+    environment:
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      _PIP_ADDITIONAL_REQUIREMENTS: "psycopg2-binary"
+
+      # Update these if your local Postgres credentials are different.
+      POSTGRES_HOST: "host.docker.internal"
+      POSTGRES_PORT: "5432"
+      POSTGRES_DB: "postgres"
+      POSTGRES_USER: "cameronbarker"
+      POSTGRES_PASSWORD: ""
+      POSTGRES_SCHEMA: "capstone"
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - .:/opt/airflow/project
